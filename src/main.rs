@@ -1,12 +1,14 @@
 pub mod vec;
 pub mod queue;
 
-use queue::Queue;
+use vec::Vec;
 
 fn main() {
-    let mut q = queue![1, 2, 3, 4];
-    println!("{:?}", q);
-    let x = q.dequeue();
+    let mut v: vec::Vec<i32> = vec![1, 2, 3, 4, 5];
+    println!("{:?}", v);
+    let x = v.peek();
     println!("{:?}", x);
-    println!("{:?}", q);
+    let y = v.pop();
+    println!("{:?}", y);
+    print!("{:?}", x);
 }

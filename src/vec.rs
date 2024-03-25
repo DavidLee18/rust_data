@@ -75,6 +75,14 @@ impl<T> Vec<T> {
             unsafe { Some(ptr::read(self.ptr.as_ptr().add(self.len))) }
         }
     }
+
+    pub fn peek<'a>(&'a self) -> Option<&'a T> {
+        if self.len == 0 {
+            None
+        } else {
+            unsafe { self.ptr.as_ptr().add(self.len-1).as_ref() }
+        }
+    }
 }
 
 impl<T> Drop for Vec<T> {
